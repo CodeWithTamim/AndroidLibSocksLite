@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
+  <!-- Go component configuration -->
   <component name="Go" enabled="true" />
+
+  <!-- Module root manager configuration -->
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+    
+    <!-- Order entries for the module -->
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
