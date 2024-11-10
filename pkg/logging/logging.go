@@ -2,12 +2,17 @@ package logging
 
 import "log"
 
-// LogInfo provides informational logging
+// LogInfo logs informational messages with an [INFO] prefix.
 func LogInfo(message string) {
-	log.Printf("[INFO] %s\n", message)
+	logMessage("[INFO]", message)
 }
 
-// LogError provides error logging
+// LogError logs error messages with an [ERROR] prefix.
 func LogError(message string) {
-	log.Printf("[ERROR] %s\n", message)
+	logMessage("[ERROR]", message)
+}
+
+// logMessage is a helper function to format and log messages.
+func logMessage(level, message string) {
+	log.Printf("%s %s\n", level, message)
 }
