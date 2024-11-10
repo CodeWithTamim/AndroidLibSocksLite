@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <!-- Project Module Manager Configuration -->
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GoSocksLib.iml" filepath="$PROJECT_DIR$/.idea/GoSocksLib.iml" />
+      <!-- Module definition -->
+      <module 
+        fileurl="file://$PROJECT_DIR$/.idea/GoSocksLib.iml" 
+        filepath="$PROJECT_DIR$/.idea/GoSocksLib.iml" 
+      />
     </modules>
   </component>
 </project>
