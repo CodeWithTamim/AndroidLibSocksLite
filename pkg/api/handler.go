@@ -27,15 +27,22 @@ func getClientStatus(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(status); err != nil {
-		http.Error(w, "Failed to encode response", http.StatusInternalServerError)
+		logErrorResponse(w, "Failed to encode response", http.StatusInternalServerError)
+		return
 	}
 }
 
 // shutdownServers handles requests to shut down all servers.
 func shutdownServers(w http.ResponseWriter, r *http.Request) {
 	if err := socks.Shutdown(); err != nil {
-		http.Error(w, "Failed to shutdown", http.StatusInternalServerError)
+		logErrorResponse(w, "Failed to shutdown", http.StatusInternalServerError)
 		return
 	}
 	w.Write([]byte("All servers shut down successfully"))
+}
+
+// logErrorResponse logs an error message and sends an HTTP error response.
+func logErrorResponse(w http.ResponseWriter, message string, statusCode int) {
+	logging.LogError(message)
+	http.Error(w, message, statusCode)
 }
