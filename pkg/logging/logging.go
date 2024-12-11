@@ -1,6 +1,17 @@
 package logging
 
-import "log"
+import (
+	"log"
+	"os"
+)
+
+// Logger is a custom logger that can be configured.
+var Logger *log.Logger
+
+// init initializes the logger with default settings.
+func init() {
+	Logger = log.New(os.Stdout, "", log.LstdFlags)
+}
 
 // LogInfo logs informational messages with an [INFO] prefix.
 func LogInfo(message string) {
@@ -14,5 +25,5 @@ func LogError(message string) {
 
 // logMessage is a helper function to format and log messages.
 func logMessage(level, message string) {
-	log.Printf("%s %s\n", level, message)
+	Logger.Printf("%s %s\n", level, message)
 }
